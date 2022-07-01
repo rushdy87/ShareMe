@@ -6,8 +6,9 @@ import { Link, Route, Routes } from "react-router-dom";
 import { Sidebar, UserProfile } from "../components";
 import Pins from "./Pins";
 import { client } from "../client";
-import { userQuary } from "../utils/data";
+import { userQuery } from "../utils/data";
 import logo from "../assets/logo.png";
+import { fetchUser } from "../utils/fetchUser";
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -15,15 +16,12 @@ const Home = () => {
 
   const scrollRef = useRef(null);
 
-  const userInfo =
-    localStorage.getItem("user") !== "undefined"
-      ? JSON.parse(localStorage.getItem("user"))
-      : localStorage.clear();
+  const userInfo = fetchUser();
 
   useEffect(() => {
-    const quary = userQuary(userInfo?.googleId);
+    const query = userQuery(userInfo?.googleId);
     client
-      .fetch(quary)
+      .fetch(query)
       .then((data) => {
         setUser(data[0]);
       })
