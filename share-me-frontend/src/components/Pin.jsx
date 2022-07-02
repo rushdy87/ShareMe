@@ -15,7 +15,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const user = fetchUser();
 
   const alreadySaved = !!save?.filter(
-    (item) => item.postedBy._id === user.googleId
+    (item) => item.postedBy?._id === user.googleId
   )?.length;
 
   const savePin = (id) => {
@@ -79,6 +79,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                 <button
                   type="button"
                   className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   {save?.length} Saved
                 </button>
