@@ -76,6 +76,7 @@ const UserProfile = () => {
               src={user.image}
               className="rounded-full w-20 h-20 -mt-10 shadow-xl object-cover"
               alt="user_image"
+              referrerPolicy="no-referrer"
             />
             <h1 className="font-bold text-3xl text-center mt-3">
               {user.userName}

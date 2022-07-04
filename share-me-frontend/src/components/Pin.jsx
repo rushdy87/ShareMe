@@ -58,6 +58,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           src={urlFor(image).width(500).url()}
           className="rounded-lg w-full"
           alt="user_post"
+          referrerPolicy="no-referrer"
         />
         {postHovered && (
           <div
@@ -127,13 +128,14 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         )}
       </div>
       <Link
-        to={`user-profile/${postedBy?._id}`}
+        to={`./user-profile/${postedBy?._id}`}
         className="flex gap-2 mt-2 items-center"
       >
         <img
           src={postedBy?.image}
           className="w-8 h-8 rounded-full object-cover"
           alt="user_profile"
+          referrerPolicy="no-referrer"
         />
         <p className="font-semibold capitalize">{postedBy?.userName}</p>
       </Link>

@@ -11,7 +11,7 @@ const CreatePin = ({ user }) => {
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [loading, setLoading] = useState(false);
-  const [destination, setDestination] = useState();
+  const [destination, setDestination] = useState("");
   const [fields, setFields] = useState();
   const [category, setCategory] = useState();
   const [imageAsset, setImageAsset] = useState();
@@ -149,6 +149,7 @@ const CreatePin = ({ user }) => {
                 src={user.image}
                 alt="user_profile"
                 className="w-10 h-10 rounded-full"
+                referrerPolicy="no-referrer"
               />
               <p className="font-bold">{user.userName}</p>
             </div>

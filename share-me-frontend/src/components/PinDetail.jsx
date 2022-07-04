@@ -73,6 +73,7 @@ const PinDetail = ({ user }) => {
             src={pinDetail?.image && urlFor(pinDetail.image).url()}
             className="rounded-t-3xl rounded-b-lg"
             alt="user_post"
+            referrerPolicy="no-referrer"
           />
         </div>
         <div className="w-full p-5 flex-1 xl:min-w-620">
@@ -105,6 +106,7 @@ const PinDetail = ({ user }) => {
               src={pinDetail.postedBy?.image}
               className="w-8 h-8 rounded-full object-cover"
               alt="user_profile"
+              referrerPolicy="no-referrer"
             />
             <p className="font-semibold capitalize">
               {pinDetail.postedBy?.userName}
@@ -121,6 +123,7 @@ const PinDetail = ({ user }) => {
                   src={comment.postedBy.image}
                   alt="user_profile"
                   className="w-10 h-10 rounded-full cursor-pointer"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="flex flex-col">
                   <p className="font-bold">{comment.postedBy.userName}</p>
@@ -130,11 +133,12 @@ const PinDetail = ({ user }) => {
             ))}
           </div>
           <div className="flex flex-wrap m-6 gap-3">
-            <Link to={`user-profile/${pinDetail.postedBy?._id}`}>
+            <Link to={{ pathname: `/user-profile/${pinDetail.postedBy?._id}` }}>
               <img
                 src={pinDetail.postedBy?.image}
                 className="w-10 h-10 rounded-full cursor-pointer"
                 alt="user_profile"
+                referrerPolicy="no-referrer"
               />
             </Link>
             <input
